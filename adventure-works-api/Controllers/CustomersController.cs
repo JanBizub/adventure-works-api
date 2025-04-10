@@ -16,6 +16,7 @@ public class CustomersController : ControllerBase
 
     [HttpGet("echo")] public IActionResult Echo() => Ok("Echo");
 
+
     [HttpGet("")]
     public IActionResult GetCustomers(int pageNumber = 1, int customersPerPage = 10)
     {
@@ -51,5 +52,66 @@ public class CustomersController : ControllerBase
         };
 
         return Ok(response);
+    }
+
+    [HttpGet("{id}")]
+    public IActionResult GetCustomer(int id)
+    {
+        var customer = _dbContext.DimCustomers
+            .Where(c => c.CustomerKey == id)
+            .Select(c => new
+            {
+                c.FirstName,
+                c.LastName,
+                c.Gender
+            })
+            .FirstOrDefault();
+
+        if (customer == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(customer);
+    }
+
+    [HttpPut("{id}")]
+    public IActionResult EditCustomer(int id, [FromBody] DimCustomer updatedCustomer)
+    {
+        if (updatedCustomer == null)
+        {
+            return BadRequest("Updated customer data is required.");
+        }
+
+        var customer = _dbContext.DimCustomers.FirstOrDefault(c => c.CustomerKey == id);
+
+        if (customer == null)
+        {
+            return NotFound();
+        }
+
+        customer.FirstName = updatedCustomer.FirstName;
+        customer.LastName = updatedCustomer.LastName;
+        customer.Gender = updatedCustomer.Gender;
+
+        _dbContext.SaveChanges();
+
+        return NoContent();
+    }
+
+    [HttpDelete("{id}")]
+    public IActionResult DeleteCustomer(int id)
+    {
+        var customer = _dbContext.DimCustomers.FirstOrDefault(c => c.CustomerKey == id);
+
+        if (customer == null)
+        {
+            return NotFound();
+        }
+
+        _dbContext.DimCustomers.Remove(customer);
+        _dbContext.SaveChanges();
+
+        return NoContent();
     }
 }

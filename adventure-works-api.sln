@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adventure-works-api", "adventure-works-api\adventure-works-api.csproj", "{D0F831EB-2A32-443A-8723-2D42842A452A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adventure-works-api-tests", "adventure-works-api-tests\adventure-works-api-tests.csproj", "{ED3348B1-9D08-4CE5-BADA-B6DFC3CB3B8A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{D0F831EB-2A32-443A-8723-2D42842A452A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0F831EB-2A32-443A-8723-2D42842A452A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0F831EB-2A32-443A-8723-2D42842A452A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED3348B1-9D08-4CE5-BADA-B6DFC3CB3B8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED3348B1-9D08-4CE5-BADA-B6DFC3CB3B8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED3348B1-9D08-4CE5-BADA-B6DFC3CB3B8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED3348B1-9D08-4CE5-BADA-B6DFC3CB3B8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
