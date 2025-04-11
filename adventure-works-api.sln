@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adventure-works-api", "adventure-works-api\adventure-works-api.csproj", "{D0F831EB-2A32-443A-8723-2D42842A452A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.WebAPI", "AdventureWorks.WebAPI\AdventureWorks.WebAPI.csproj", "{D0F831EB-2A32-443A-8723-2D42842A452A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adventure-works-api-tests", "adventure-works-api-tests\adventure-works-api-tests.csproj", "{ED3348B1-9D08-4CE5-BADA-B6DFC3CB3B8A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventureWorks.Tests", "AdventureWorks.Tests\AdventureWorks.Tests.csproj", "{ED3348B1-9D08-4CE5-BADA-B6DFC3CB3B8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
