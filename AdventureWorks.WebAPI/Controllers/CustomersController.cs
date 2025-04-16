@@ -1,4 +1,5 @@
 using DependencyInjectionApi.Data;
+using DependencyInjectionApi.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,14 +10,29 @@ namespace DependencyInjectionApi.Controllers;
 public class CustomersController : ControllerBase
 {
     private readonly AdventureWorksDw2022Context _dbContext;
+    private readonly ICalculationService _calculationService;
 
-    public CustomersController(AdventureWorksDw2022Context dbContext)
+    public CustomersController(AdventureWorksDw2022Context dbContext, ICalculationService calculationService)
     {
         _dbContext = dbContext;
+        _calculationService = calculationService;
     }
 
     [HttpGet("echo")] public IActionResult Echo() => Ok("Echo");
 
+    [HttpGet("calculate-discount")]
+    public IActionResult CalculateDiscount(int originalPrice, int discountPercentage)
+    {
+        try
+        {
+            var discountedPrice = _calculationService.CalculateDiscount(originalPrice, discountPercentage);
+            return Ok(new { OriginalPrice = originalPrice, DiscountPercentage = discountPercentage, DiscountedPrice = discountedPrice });
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
 
     [HttpGet("")]
     public async Task<IActionResult> GetCustomers(int pageNumber = 1, int customersPerPage = 10)

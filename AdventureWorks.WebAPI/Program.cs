@@ -24,3 +24,9 @@ app.MapControllers();
 
 app.Run();
 
+/// <summary>
+/// A partial class for the Program, created to make the Program.cs file accessible 
+/// for integration tests. This allows test projects to reference and interact with 
+/// the application's entry point.
+/// </summary>
+public partial class Program { }
